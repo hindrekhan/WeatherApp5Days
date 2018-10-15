@@ -18,6 +18,7 @@ namespace WeatherApp
         TextView windSpeed;
         ImageView weatherIcon;
         ProgressBar progressBar;
+        Button forecast;
 
         protected  override  void OnCreate(Bundle savedInstanceState)
         {
@@ -32,11 +33,18 @@ namespace WeatherApp
             windSpeed = FindViewById<TextView>(Resource.Id.windSpeed);
             weatherIcon = FindViewById<ImageView>(Resource.Id.weatherIcon);
             progressBar = FindViewById<ProgressBar>(Resource.Id.progressBar);
+            forecast = FindViewById<Button>(Resource.Id.forecast);
             
             search.Click += Button_Click;
+            forecast.Click += ForeCast_Click;
 
             SwapWeather();
             SwapProgressBar();
+        }
+
+        private void ForeCast_Click(object sender, EventArgs e)
+        {
+            SetContentView(Resource.Layout.weather_list);
         }
 
         private async void Button_Click(object sender, System.EventArgs e)
@@ -57,6 +65,8 @@ namespace WeatherApp
                 weatherIcon.SetImageResource(Resources.GetIdentifier(weather.ImageName, "drawable", PackageName));
                 SwapWeather();
             }
+
+            var weathers = await Core.Core.Get5DaysWeather(input.Text);
 
             SwapProgressBar();
         }
