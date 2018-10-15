@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:minWidth="25px"
+	android:minHeight="25px">
+	<LinearLayout
+		android:orientation="vertical"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1">
+		<LinearLayout
+			android:orientation="horizontal"
+			android:minWidth="25px"
+			android:minHeight="25px"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/dayLayoutVertical">
+			<TextView
+				android:text="Day1"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:id="@+id/day1"/>
+		</LinearLayout>
+		<LinearLayout
+			android:orientation="horizontal"
+			android:minWidth="25px"
+			android:minHeight="25px"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/day1LayoutHorizontal"/>
+		<TextView
+			android:text="Date"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/day1Date" />
+		<ImageView
+			android:src="@android:drawable/ic_menu_gallery"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/day1Icon"
+			android:maxWidth="32px"
+			android:maxHeight="32px"
+			android:minHeight="32px"
+			android:layout_weight="1"
+			android:minWidth="32px" />
+		<TextView
+			android:text="High"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:paddingRight="16px"
+			android:id="@+id/day1HighTemp" />
+		<TextView
+			android:text="Low"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/day1LowTemp" />
+	</LinearLayout>
+</LinearLayout>
