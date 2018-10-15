@@ -8,7 +8,7 @@ namespace WeatherApp.Core
 {
     public class Core
     {
-        static string Key = "e75b73caed0d728414c37cd7037d4291";
+        const string Key = "e75b73caed0d728414c37cd7037d4291";
 
         public static async Task<Weather> GetWeather(string location)
         {
@@ -29,10 +29,10 @@ namespace WeatherApp.Core
 
         public static async Task<List<Weather>> Get5DaysWeather(string location)
         {
-            string queryString = "api.openweathermap.org/data/2.5/forecast?q=" + location + "&APPID="+ Key;
+            string queryString = "http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&APPID="+ Key;
 
             dynamic results = await DataService.GetDataFromService(queryString).ConfigureAwait(false);
-            if (results["weather"] == null)
+            if (results == null)
                 return null;
             
             List<Weather> weathers = new List<Weather>();
@@ -40,7 +40,7 @@ namespace WeatherApp.Core
             for (int i = 0; i < 5; i++)
             {
                 Weather weather = new Weather();
-                weather.Temperature = (string)results["list"][i]["main"]["temp"];
+                weather.Temperature = (string)results["list"][0]["main"]["temp"];
                 Debug.WriteLine(weather.Temperature);
             }
 

@@ -2483,9 +2483,6 @@ namespace WeatherApp
 			// aapt resource value: 0x7f08003d
 			public const int bottom = 2131230781;
 			
-			// aapt resource value: 0x7f0800c0
-			public const int button1 = 2131230912;
-			
 			// aapt resource value: 0x7f080063
 			public const int buttonPanel = 2131230819;
 			
@@ -2672,8 +2669,8 @@ namespace WeatherApp
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800c2
-			public const int masked = 2131230914;
+			// aapt resource value: 0x7f0800c1
+			public const int masked = 2131230913;
 			
 			// aapt resource value: 0x7f0800b1
 			public const int media_actions = 2131230897;
@@ -2948,8 +2945,8 @@ namespace WeatherApp
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800c1
-			public const int visible = 2131230913;
+			// aapt resource value: 0x7f0800c0
+			public const int visible = 2131230912;
 			
 			// aapt resource value: 0x7f080093
 			public const int weatherIcon = 2131230867;

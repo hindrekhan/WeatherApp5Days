@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Widget;
 using WeatherApp.Core;
 using System;
+using Android.Content;
 
 namespace WeatherApp
 {
@@ -19,12 +20,15 @@ namespace WeatherApp
         ImageView weatherIcon;
         ProgressBar progressBar;
         Button forecast;
+        public static string packName { get; set; }
 
         protected  override  void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+
+            packName = PackageName;
 
             search = FindViewById<Button>(Resource.Id.search);
             input = FindViewById<EditText>(Resource.Id.input);
@@ -44,7 +48,9 @@ namespace WeatherApp
 
         private void ForeCast_Click(object sender, EventArgs e)
         {
-            SetContentView(Resource.Layout.weather_list);
+            Intent intent = new Intent(this, typeof(WeatherListActivity));
+            intent.PutExtra("input", input.Text);
+            StartActivity(intent);
         }
 
         private async void Button_Click(object sender, System.EventArgs e)
@@ -61,12 +67,10 @@ namespace WeatherApp
                 temperature.Text = weather.Temperature;
                 pressure.Text = weather.Pressure;
                 windSpeed.Text = weather.WindSpeed;
-
+                
                 weatherIcon.SetImageResource(Resources.GetIdentifier(weather.ImageName, "drawable", PackageName));
                 SwapWeather();
             }
-
-            var weathers = await Core.Core.Get5DaysWeather(input.Text);
 
             SwapProgressBar();
         }
