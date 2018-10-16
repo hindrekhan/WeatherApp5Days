@@ -11,18 +11,21 @@ using Android.Views;
 using Android.Widget;
 using WeatherApp.Core;
 using Android.Support.V7.App;
+using Android.Content.Res;
 
 namespace WeatherApp
 {
     public class CustomAdapter : BaseAdapter<Weather>
     {
-        public List<Weather> items;
+        List<Weather> items;
+        List<int> images;
         Activity context;
 
-        public CustomAdapter(Activity context, List<Weather> items) : base()
+        public CustomAdapter(Activity context, List<Weather> items, List<int> images) : base()
         {
             this.context = context;
             this.items = items;
+            this.images = images;
         }
 
         public override Weather this[int position]
@@ -44,10 +47,12 @@ namespace WeatherApp
                view = context.LayoutInflater.Inflate(Resource.Layout.CustomRow, null);
 
             view.FindViewById<TextView>(Resource.Id.date).Text = items[position].Date;
-            
-            var image = view.FindViewById<TextView>(Resource.Id.imageView1);
-            var packName = MainActivity.packName
-            image.SetImageResource(Resources.GetIdentifier(items[position].ImageName, "drawable", packName));
+
+            var image = view.FindViewById<ImageView>(Resource.Id.icon);
+            image.SetImageResource(images[position]);
+
+            view.FindViewById<TextView>(Resource.Id.tempHigh).Text = items[position].Temperature;
+            view.FindViewById<TextView>(Resource.Id.tempLow).Text = items[position].TemperatureLow;
             
             return view;
         }

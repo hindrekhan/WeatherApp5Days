@@ -19,21 +19,24 @@
 			android:id="@+id/date" />
 		<ImageView
 			android:src="@android:drawable/ic_menu_gallery"
-			android:layout_width="wrap_content"
+			android:layout_width="102.5dp"
 			android:layout_height="match_parent"
-			android:id="@+id/imageView1" />
+			android:id="@+id/icon"
+			android:minWidth="100px"
+			android:minHeight="100px"
+			android:layout_marginBottom="7.0dp" />
 		<TextView
 			android:text="tempHigh"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
-			android:id="@+id/textView4" />
+			android:id="@+id/tempHigh" />
 		<TextView
 			android:text="Small Text"
 			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
-			android:id="@+id/textView3" />
+			android:id="@+id/tempLow" />
 	</LinearLayout>
 
 </LinearLayout>

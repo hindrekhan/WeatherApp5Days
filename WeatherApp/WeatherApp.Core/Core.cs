@@ -29,7 +29,7 @@ namespace WeatherApp.Core
 
         public static async Task<List<Weather>> Get5DaysWeather(string location)
         {
-            string queryString = "http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&APPID="+ Key;
+            string queryString = "http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&APPID=" + Key + "&units=metric";
 
             dynamic results = await DataService.GetDataFromService(queryString).ConfigureAwait(false);
             if (results == null)
@@ -40,8 +40,11 @@ namespace WeatherApp.Core
             for (int i = 0; i < 5; i++)
             {
                 Weather weather = new Weather();
-                weather.Temperature = (string)results["list"][0]["main"]["temp"];
-                Debug.WriteLine(weather.Temperature);
+                weather.Temperature = (string)results["list"][i]["main"]["temp_max"] + " C";
+                weather.TemperatureLow = (string)results["list"][i]["main"]["temp_low"] + " C";
+                weather.ImageName = "_" + (string)results["list"][i]["weather"][0]["icon"];
+
+                weathers.Add(weather);
             }
 
             return weathers;

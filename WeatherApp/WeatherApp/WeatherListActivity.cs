@@ -38,7 +38,14 @@ namespace WeatherApp
                 throw new System.ArgumentException("Parameter cannot be null", "original");
             }
 
-            listView.Adapter = new CustomAdapter(this, weathers);
+            List<int> images = new List<int>();
+
+            foreach (Weather weather in weathers)
+            {
+                images.Add(Resources.GetIdentifier(weather.ImageName, "drawable", PackageName));
+            }
+
+            listView.Adapter = new CustomAdapter(this, weathers, images);
         }
     }
 }
