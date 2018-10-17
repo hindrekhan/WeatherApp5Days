@@ -10,21 +10,21 @@
 		android:minHeight="25px"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/linearLayout1">
+		android:id="@+id/linearLayout1"
+		android:layout_marginBottom="50px">
 		<TextView
 			android:text="date"
-			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/date" />
 		<ImageView
 			android:src="@android:drawable/ic_menu_gallery"
-			android:layout_width="102.5dp"
-			android:layout_height="match_parent"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
 			android:id="@+id/icon"
 			android:minWidth="100px"
-			android:minHeight="100px"
-			android:layout_marginBottom="7.0dp" />
+			android:minHeight="100px"/>
 		<TextView
 			android:text="tempHigh"
 			android:textAppearance="?android:attr/textAppearanceMedium"
@@ -36,7 +36,8 @@
 			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
-			android:id="@+id/tempLow" />
+			android:id="@+id/tempLow"
+			android:layout_marginLeft="24px" />
 	</LinearLayout>
 
 </LinearLayout>

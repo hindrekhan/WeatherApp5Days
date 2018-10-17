@@ -53,7 +53,8 @@ namespace WeatherApp
 
             view.FindViewById<TextView>(Resource.Id.tempHigh).Text = items[position].Temperature;
             view.FindViewById<TextView>(Resource.Id.tempLow).Text = items[position].TemperatureLow;
-            
+            view.FindViewById<TextView>(Resource.Id.date).Text = items[position].Date;
+
             return view;
         }
     }

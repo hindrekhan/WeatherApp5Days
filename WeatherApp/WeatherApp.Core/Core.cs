@@ -37,17 +37,31 @@ namespace WeatherApp.Core
             
             List<Weather> weathers = new List<Weather>();
 
+            int currentIterator = 0;
             for (int i = 0; i < 5; i++)
             {
                 Weather weather = new Weather();
-                weather.Temperature = (string)results["list"][i]["main"]["temp_max"] + " C";
-                weather.TemperatureLow = (string)results["list"][i]["main"]["temp_low"] + " C";
-                weather.ImageName = "_" + (string)results["list"][i]["weather"][0]["icon"];
+                weather.Temperature = (string)results["list"][currentIterator]["main"]["temp_max"] + " C";
+                weather.TemperatureLow = (string)results["list"][currentIterator]["main"]["temp_min"] + " C";
+                weather.ImageName = "_" + (string)results["list"][currentIterator]["weather"][0]["icon"];
+                weather.Date = UnixTimeToString((long)results["list"][currentIterator]["dt"]);
+
+                currentIterator += 8;
 
                 weathers.Add(weather);
             }
 
             return weathers;
+        }
+
+        public static string UnixTimeToString(long dt)
+        {
+            DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+            dateTime = dateTime.AddSeconds(dt).ToLocalTime();
+
+            var a = dateTime.ToString();
+
+            return dateTime.ToString();
         }
     }
 }
