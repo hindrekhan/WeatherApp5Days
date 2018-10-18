@@ -78,6 +78,7 @@ namespace WeatherApp
                 pressure.Visibility = Android.Views.ViewStates.Visible;
                 windSpeed.Visibility = Android.Views.ViewStates.Visible;
                 weatherIcon.Visibility = Android.Views.ViewStates.Visible;
+                forecast.Visibility = Android.Views.ViewStates.Visible;
             }
             else
             {
@@ -85,6 +86,7 @@ namespace WeatherApp
                 pressure.Visibility = Android.Views.ViewStates.Invisible;
                 windSpeed.Visibility = Android.Views.ViewStates.Invisible;
                 weatherIcon.Visibility = Android.Views.ViewStates.Invisible;
+                forecast.Visibility = Android.Views.ViewStates.Invisible;
             }
         }
 
