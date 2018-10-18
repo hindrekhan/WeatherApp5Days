@@ -32,7 +32,7 @@
 			android:layout_height="match_parent"
 			android:id="@+id/tempHigh" />
 		<TextView
-			android:text="Small Text"
+			android:text="tempLow"
 			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"

@@ -26,26 +26,25 @@ namespace WeatherApp
 
             listView = FindViewById<ListView>(Resource.Id.listView1);
 
-            var input = Intent.Extras.GetString("input");
+            string input = Intent.Extras.GetString("input");
             update_weather(input);
         }
 
         private async void update_weather(string input)
         {
             var weathers = await Core.Core.Get5DaysWeather(input);
-            if (weathers == null)
+
+            if (weathers != null)
             {
-                throw new System.ArgumentException("Parameter cannot be null", "original");
+                List<int> images = new List<int>();
+
+                foreach (Weather weather in weathers)
+                {
+                    images.Add(Resources.GetIdentifier(weather.ImageName, "drawable", PackageName));
+                }
+
+                listView.Adapter = new CustomAdapter(this, weathers, images);
             }
-
-            List<int> images = new List<int>();
-
-            foreach (Weather weather in weathers)
-            {
-                images.Add(Resources.GetIdentifier(weather.ImageName, "drawable", PackageName));
-            }
-
-            listView.Adapter = new CustomAdapter(this, weathers, images);
         }
     }
 }

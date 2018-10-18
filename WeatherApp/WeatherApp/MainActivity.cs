@@ -20,15 +20,12 @@ namespace WeatherApp
         ImageView weatherIcon;
         ProgressBar progressBar;
         Button forecast;
-        public static string packName { get; set; }
 
         protected  override  void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
-
-            packName = PackageName;
 
             search = FindViewById<Button>(Resource.Id.search);
             input = FindViewById<EditText>(Resource.Id.input);
@@ -56,9 +53,7 @@ namespace WeatherApp
         private async void Button_Click(object sender, System.EventArgs e)
         {
             if (temperature.Visibility == Android.Views.ViewStates.Visible)
-            {
                 SwapWeather();
-            }
 
             SwapProgressBar();
             var weather = await Core.Core.GetWeather(input.Text);
@@ -96,13 +91,9 @@ namespace WeatherApp
         private void SwapProgressBar()
         {
             if (progressBar.Visibility == Android.Views.ViewStates.Invisible)
-            {
                 progressBar.Visibility = Android.Views.ViewStates.Visible;
-            }
             else
-            {
                 progressBar.Visibility = Android.Views.ViewStates.Invisible;
-            }
         }
     }
 }

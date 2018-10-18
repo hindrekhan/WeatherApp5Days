@@ -32,7 +32,7 @@ namespace WeatherApp.Core
             string queryString = "http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&APPID=" + Key + "&units=metric";
 
             dynamic results = await DataService.GetDataFromService(queryString).ConfigureAwait(false);
-            if (results == null)
+            if (results["list"] == null)
                 return null;
             
             List<Weather> weathers = new List<Weather>();
@@ -59,9 +59,7 @@ namespace WeatherApp.Core
             DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
             dateTime = dateTime.AddSeconds(dt).ToLocalTime();
 
-            var a = dateTime.ToString();
-
-            return dateTime.ToString();
+            return dateTime.ToString("dd. MMMM yyyy");
         }
     }
 }
