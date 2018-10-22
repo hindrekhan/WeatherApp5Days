@@ -9,7 +9,7 @@ using Android.Content;
 
 namespace WeatherApp
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         Button search;
@@ -35,6 +35,8 @@ namespace WeatherApp
             weatherIcon = FindViewById<ImageView>(Resource.Id.weatherIcon);
             progressBar = FindViewById<ProgressBar>(Resource.Id.progressBar);
             forecast = FindViewById<Button>(Resource.Id.forecast);
+            var toolbar = FindViewById<Toolbar>(Resource.Layout.toolbar);
+            SetActionBar(toolbar);
             
             search.Click += Button_Click;
             forecast.Click += ForeCast_Click;

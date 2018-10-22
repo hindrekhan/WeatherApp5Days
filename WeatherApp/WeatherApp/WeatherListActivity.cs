@@ -13,7 +13,7 @@ using Android.Support.V7.App;
 
 namespace WeatherApp
 {
-    [Activity(Label = "WeatherListActivity", Theme = "@style/AppTheme")]
+    [Activity(Label = "WeatherListActivity", Theme = "@style/MyTheme")]
     public class WeatherListActivity : AppCompatActivity
     {
         ListView listView;
